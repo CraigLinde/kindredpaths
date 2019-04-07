@@ -1,0 +1,70 @@
+<body class = "lib_page">
+<div class = "page_margin">
+<nav><%=render partial: 'shared/navlinks'%></nav>
+
+
+<table width = "100%">
+    <tbody>
+      <tr>
+        <td align = "right"><%= image_tag("Dale_Horn.jpg", size: "250") %></td>
+        <td align = "center"><h1>ARTICLE LIBRARY</h1></td>
+        <td align = "left"><%= image_tag("Dale_Hammer.jpg", size: "250") %></td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+<div class='container lib_container'>     
+<div class='row'>   
+    <div class = "col-md-3">
+    <h2 class = "cntr">CELTIC</h2>
+        <%@celtic_topics.each do |topic_id|%>
+        <%@celtic_articles= Article.where(culture_id: 1, topics_id: topic_id)%>
+            <%topic = Topic.where(id: topic_id)%>
+            <%my_topic = topic.first%>
+            <%topic_name = my_topic.topic%>
+            <h3 class = "cntr"><U><%=topic_name%></U>  <%= link_to image_tag("valk.png", :border=>0), :action => 'article_list', 
+:controller => 'pages', :class => 'dock-item', :culture => "Celtic", :topic => topic_name%></h3> 
+<br>
+        <%end%>
+    </div>
+
+    <div class = 'col-md-3'>
+    <h2 class = "cntr">GERMANIC</h2>
+        <%@germanic_topics.each do |topic_id|%>
+        <%@germanic_articles= Article.where(culture_id: 2, topics_id: topic_id)%>
+            <%topic = Topic.where(id: topic_id)%>
+            <%my_topic = topic.first%>
+            <%topic_name = my_topic.topic%>
+            <h3 class = "cntr"><U><%=topic_name%></U>  <%= link_to image_tag("valk.png", :border=>0), :action => 'article_list', 
+:controller => 'pages', :class => 'dock-item', :culture => "Germanic", :topic => topic_name %></h3><br>       
+        <%end%>
+    </div>
+    <div class = 'col-md-3'>
+    <h2 class = "cntr">NORSE</h2>
+        <%@norse_topics.each do |topic_id|%>
+        <%@norse_articles= Article.where(culture_id: 3, topics_id: topic_id)%>
+            <%topic = Topic.where(id: topic_id)%>
+            <%my_topic = topic.first%>
+            <%topic_name = my_topic.topic%>
+            <h3 class = "cntr"><U><%=topic_name%></U>  <%= link_to image_tag("valk.png", :border=>0), :action => 'article_list', 
+:controller => 'pages', :class => 'dock-item', :culture => "Norse", :topic => topic_name%></h3><br>
+        <%end%>
+    </div>
+    <div class = 'col-md-3'>
+    <h2 class = "cntr">SPANS ALL CULTURES</h2>
+        <%@all_apply_topics.each do |topic_id|%>
+        <%@all_apply= Article.where(culture_id: 4, topics_id: topic_id)%>
+
+            <%topic = Topic.where(id: topic_id)%>
+            <%my_topic = topic.first%>
+            <%topic_name = my_topic.topic%>
+            <h3 class = "cntr"><U><%=topic_name%></U>  <%= link_to image_tag("valk.png", :border=>0), :action => 'article_list', 
+:controller => 'pages', :class => 'dock-item', :culture => "Spans All Cultures", :topic => topic_name%></h3><br>
+        <%end%>
+    </div>
+</div>  
+</div>  
+</div>
+</body>

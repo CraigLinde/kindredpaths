@@ -1,0 +1,31 @@
+<div class="dropdown">
+  <button class="dropbtn">SITE MAP</button>
+  <div class="dropdown-content">
+    <nlink class = "navlink"><%= link_to "Home", pages_home_path%></nlink>
+    <nlink class = "navlink"><%= link_to "Library", pages_library_path%></nlink>
+    <nlink class = "navlink"><%= link_to "Recipes", recipes_path%></nlink>
+    <% if current_user %>
+        <%if current_user.role == "Admin" || current_user.role == "Seaxneat Chieftain" || current_user.role == "Sliabh Chieftain"%>
+          <nlink class = "navlink"><%= link_to "Clans", clans_path%></nlink>
+          <nlink class = "navlink"><%= link_to "Add Article", articles_path%></nlink>
+          <nlink class = "navlink"><%= link_to "Topics", topics_path%></nlink>
+        <% end %>
+
+        <% if current_user.role == "Admin" %>
+          <nlink class = "navlink"><%= link_to "Users", pages_users_path %></nlink>
+        <% end %>
+
+          <nlink class = "navlink"> <%= link_to "Logout", destroy_user_session_path, method: :delete %></nlink>
+
+    <% else %>
+          <nlink class = "navlink"><%= link_to "Sign In", new_user_session_path %></nlink>
+          <%
+=begin%>
+ <nlink class = "navlink"><%= link_to "Register", new_user_registration_path %></nlink> 
+<%
+=end%>
+    <% end %>
+  </div>
+</div>
+
+

@@ -1,0 +1,64 @@
+<nav><%=render partial: 'shared/navlinks'%></nav>
+<div class="container">
+
+<body class="homepage">
+
+  <div class = "row">
+    <div class = "col-md-8"></div>
+    <div class = "col-md-4 centertext">
+      
+    </div>
+  </div>
+
+      <%@seaxneat.each do |sx|%>
+        <% @sx_name =sx.clan_name%>
+        <% @sx_nar = sx.clan_narrative%>
+      <%end%>
+
+      <%@sliabh.each do |sb|%>
+        <% @sb_name = sb.clan_name%>
+        <% @sb_nar = sb.clan_narrative%></p>
+      <%end%>
+
+      <%@raven_wolf.each do |rw|%>
+        <% @rw_name = rw_name = rw.clan_name%>
+        <% @rw_nar = rw_nar = rw.clan_narrative%></p>
+      <%end%>
+
+  <div class= "centertext">
+    <h1 class="white siteTitle">Kindred Paths</h1>
+  </div>
+
+  <div>
+    <h3 class="white centertext pad5">Kindred Paths was created by three Utah kindreds working together to establish a solid community of local heathens. This site is dedicated to learning about the old ways. Feel free to browse the articles, books, and materials listed here to enhance your knowledge of some of the pre-christian cultures that existed in Scandinavia and Northern Europe. We wish you well in your learning.</h3>
+  </div>
+
+<table class = "main_table">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+    <tr>
+      <td style="border-right: 2px solid black;" class = " main_td_size cntr"> <%= image_tag "/assets/horse2.png", size: "50"%> </td>
+      <td style="border-right: 2px solid black;" class = " main_td_size cntr "> <%= image_tag "/assets/Triskelion.jpg", size: "50"%> </td>
+      <td class = " main_td_size cntr ">  <%= image_tag "/assets/RavenWolfHold.jpg", size: "50"%> </td>
+    </tr>
+
+    <tr>
+      <td style="border-right: 2px solid black;" class = " main_td_size cntr "><h1><%= @sx_name %></h1></td>
+      <td style="border-right: 2px solid black;" class = " main_td_size cntr "><h1><%= @sb_name %></h1></td>
+      <td class = " main_td_size cntr "><h1><%= @rw_name %></h1></td>
+    </tr>
+
+    <tr>
+      <td style="border-right: 2px solid black;" class = " main_td_size cntr "><h3><%= @sx_nar %></h3></td>
+      <td style="border-right: 2px solid black;" class = " main_td_size cntr "><h3><%= @sb_nar %></h3></td>
+      <td class = " main_td_size cntr "><h3><%= @rw_nar %></h3></td>
+    </tr>
+  </table>
+
+</body>
+</div>

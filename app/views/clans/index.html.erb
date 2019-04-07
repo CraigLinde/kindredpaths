@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+<body class = "art_page">
+<div class = "margin5">
+<nav><%=render partial: 'shared/navlinks'%></nav>
+<h1>Clans</h1>
+</div>
+<div class="row">
+<div class = "col-md-2"></div>
+
+<div class = "col-md-8">
+<table>
+  <thead>
+    <tr>
+      <th>Clan name</th>
+      <th>Clan narrative</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clans.each do |clan| %>
+      <tr>
+        <td><%= clan.clan_name %></td>
+        <td><%= clan.clan_narrative %></td>
+        <td><%= link_to 'Edit', edit_clan_path(clan), class: "btn art_butt" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+</div>
+<div class = "col-md-2"></div>

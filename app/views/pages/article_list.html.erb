@@ -1,0 +1,29 @@
+<nav><%=render partial: 'shared/navlinks'%></nav>
+<body class = "art_page">
+
+
+<h3>Culture - <%=@culture%></h3>
+<h3>Topic - <%=@topic%></h3>
+<hr>
+
+<table class = 'TB'>
+  <thead>
+    <tr>
+      <th class = 'TB_head'>Article link</th>
+      <th class = 'TB_head'>Article title</th>
+      <th class = 'TB_head'>Article note</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td class = 'TB_list cntr'><%= link_to "READ", article.article_link, target: "_blank", class: "btn art_butt" %></td>
+        <td class = 'TB_list cntr'><%= article.article_title %></td>
+        <td class = 'TB_list cntr'><%= article.article_note %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</body>

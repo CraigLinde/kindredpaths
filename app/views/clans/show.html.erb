@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Clan name:</strong>
+  <%= @clan.clan_name %>
+</p>
+
+<p>
+  <strong>Clan narrative:</strong>
+  <%= @clan.clan_narrative %>
+</p>
+
+<%= link_to 'Edit', edit_clan_path(@clan) %> |
+<%= link_to 'Back', clans_path %>

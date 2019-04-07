@@ -1,0 +1,46 @@
+<%= form_with(model: article, local: true) do |form| %>
+  <% if article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+      <% article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <% @cultures = Culture.all %>
+    <% @topics = Topic.all %>
+
+
+  <div class="field">
+    <%= form.label :culture_id %>
+    <%= form.collection_select :culture_id, @cultures, :id, :culture, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :topics_id %>
+    <%= form.collection_select :topics_id, @topics, :id, :topic, include_blank: true  %>
+    <%= link_to 'New Topic', new_topic_path%>
+  </div>
+
+  <div class="field">
+    <%= form.label :article_link %>
+    <%= form.text_field :article_link, :size=>"80"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :article_title %>
+    <%= form.text_field :article_title, :size=>"80" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :article_note %>
+    <%= form.text_field :article_note, :size=>"80" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Submit Entry"%>
+  </div>
+<% end %>

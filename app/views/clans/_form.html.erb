@@ -1,0 +1,29 @@
+<%= form_with(model: clan, local: true) do |form| %>
+  <% if clan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(clan.errors.count, "error") %> prohibited this clan from being saved:</h2>
+
+      <ul>
+      <% clan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :clan_name %>
+    <%= form.text_field :clan_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :clan_narrative %>
+    <%= form.text_area :clan_narrative, cols: "30", rows: "10" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+

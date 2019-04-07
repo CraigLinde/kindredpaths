@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+<body class = "art_page">
+<div class = "margin5">
+<nav><%=render partial: 'shared/navlinks'%></nav>
+<h1>Recipes</h1>
+</div>
+<div class="row">
+<div class = "col-md-2"></div>
+<div class = "col-md-8">
+<table width="30%" >
+  <thead>
+    <tr>
+      <th>Dish</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recipes.each do |recipe| %>
+      <tr>
+        <td><%= recipe.dish %></td>
+        <td><%= link_to 'Show', recipe, class: "btn art_butt" %></td>
+        <td><%= link_to 'Edit', edit_recipe_path(recipe), class: "btn art_butt" %></td>
+        <td><%= link_to 'Delete', recipe, method: :delete, class: "btn art_butt", data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<hr>
+<%= link_to 'New Recipe', new_recipe_path, class: "btn new_butt" %>
+<div class = "col-md-2"></div>
+</body>

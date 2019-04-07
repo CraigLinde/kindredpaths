@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+<nav><%=render partial: 'shared/navlinks'%></nav>
+<h1>Cultures</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Culture</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cultures.each do |culture| %>
+      <tr>
+        <td><%= culture.culture %></td>
+        <td><%= link_to 'Show', culture %></td>
+        <td><%= link_to 'Edit', edit_culture_path(culture) %></td>
+        <td><%= link_to 'Destroy', culture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Culture', new_culture_path %>

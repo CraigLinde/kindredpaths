@@ -12,14 +12,17 @@
 
 ActiveRecord::Schema.define(version: 2019_04_07_195913) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "articles", force: :cascade do |t|
     t.string "article_link"
     t.string "article_title"
     t.string "article_note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "culture_id"
-    t.integer "topics_id"
+    t.bigint "culture_id"
+    t.bigint "topics_id"
     t.index ["culture_id"], name: "index_articles_on_culture_id"
     t.index ["topics_id"], name: "index_articles_on_topics_id"
   end
@@ -71,4 +74,6 @@ ActiveRecord::Schema.define(version: 2019_04_07_195913) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "articles", "cultures"
+  add_foreign_key "articles", "topics", column: "topics_id"
 end

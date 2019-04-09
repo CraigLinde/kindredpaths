@@ -19,11 +19,8 @@
 
     <% else %>
           <nlink class = "navlink"><%= link_to "Sign In", new_user_session_path %></nlink>
-          <%
-=begin%>
- <nlink class = "navlink"><%= link_to "Register", new_user_registration_path %></nlink> 
-<%
-=end%>
+          <nlink class = "navlink"><%= link_to "Register", new_user_registration_path%></nlink> 
+
     <% end %>
   </div>
 </div>
